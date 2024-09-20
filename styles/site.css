@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+#map { 
+    width: 100%;
+    height: 100%; 
+}
+html, body {
+    height:100%;
+}
+button {
+    font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+
+:root{
+--fontSize: 11px;
+}
+
+
+.pm-textarea:hover{
+    background-color: #fff;
+}
+
+.pm-textarea{
+    font-size: var(--fontSize);
+    background-color: transparent;
+}
+.action-bar {
+    position: absolute;
+    z-index: 1000;
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+}
+.editor .action-bar {
+    margin-top: 5px;
+}
+
+.toastify {
+    border-width: 1px;
+    border-style: solid;
+}
+.toast-close {
+    color: #000;
+}
+
+
+.alert-info {
+    color: #0a3622;
+    background: #cff4fc;
+    border-color: #9eeaf9;
+}
+.alert-success {
+    color: #055160;
+    background: #d1e7dd;
+    border-color: #a3cfbb;
+}
+.alert-warning {
+    color: #664d03;
+    background: #fff3cd;
+    border-color: #ffe69c;
+}
+.alert-danger {
+    color: #58151c;
+    background: #f8d7da;
+    border-color: #f1aeb5;
+}
+
+#toolBarVisibilityToggle {
+    cursor: pointer;
+}
+.action-item{
+    background-color: beige;
+    padding: 0 .75em;
+    border: 1px solid gray;
+    margin: 0 .1em;
+}
+
+.leaflet-pm-toolbar .leaflet-pm-icon-layers {
+    background-image: url('../assets/Layers.svg');
+  }
+  .leaflet-pm-toolbar .leaflet-pm-icon-save {
+      background-image: url('../assets/Save.svg');
+    }
+
+  .github-link {
+    vertical-align: top;
+    margin-left: .75em;
+    margin-right: .5em;
+  }
+  
+
+  .github-link img {
+    height: 25px;
+  }
+
+
+  #layer-details{
+    position: absolute;
+    right: 0px;
+    z-index: 1000;
+    top: 50px;
+    background-color: white;
+    padding: .5em;
+  }
+
+  .find-button-container
+  {
+    padding: 0.5em 0;
+    background-color: #ffffff6e; 
+    text-align: center; 
+  }
+  #instructions {
+    background-color: #ffffffba;
+    padding: 1em;
+    display: none;
+  }
+  #text-output {
+  }
+
+  .instruction-title {
+    font-size: 1.2em;
+  }
+  .instruction-label {
+    font-weight: 500;
+    margin-bottom: 0.5em;
+    background-color: #a9a9a924;
+    padding: 0 0.25em;
+    cursor: pointer;
+  }
+
+
+  .edd-root {
+    width: 280px;
+  }
+
+  #ui-panel{
+    position: absolute;
+    z-index: 10000; 
+    margin: 1em;
+  }
+
+  #serialized-data{
+    width:400px;
+    height:200px;
+  }
