@@ -1,4 +1,7 @@
 
+// take a map and turn this info into geojson
+// * the layers, along with any 'extended' information used by geoman that doesn't fit into the geojson format
+// * the map meta data, i.e. the zoom level and the current x,y of where the map is centered on screen
 var GeoJsonExtendedSerializeMap = function(map) {
     let geoJsonLayers = [];
         
@@ -7,10 +10,10 @@ var GeoJsonExtendedSerializeMap = function(map) {
         // we only care about these drawing layers i.e. not the tile layer
         if(layer instanceof L.Path || layer instanceof L.Marker){
             let geoJsonLayer = layer.toGeoJSON();
-            // cram the layer options into the geoJson layer. The options hold information that isn't supported by the 
-            // geojson format that we can use to reconstruct the layer later
             // set the radius - after a circle is edited the radius isn't set right??????
             layer.options.radius = layer._mRadius;
+            // cram the layer options into the geoJson layer. The options hold information that isn't supported by the 
+            // geojson format that we can use to reconstruct the layer later
             geoJsonLayer.properties = layer.options;
             // copy our extra stuff into the geojsonlayer
             geoJsonLayer.extended = layer.extended;
@@ -30,6 +33,7 @@ var GeoJsonExtendedSerializeMap = function(map) {
     return serializedMapData;
 }
 
+// given some geojson, create some layer objects that can be put on map
 var GeoJsonExtendedDeserializeMap = function(serializedMap) {
 
     let deserializedLayers = [];

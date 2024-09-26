@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-nz">
 <head>
-    <title></title>
+    <title>Serialization Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=""/>
     <meta property="og:title" content="" />
@@ -47,15 +47,11 @@
 
         <div>Serialized data:</div>
         (there is some default layers here if you want to just click the 'Load the saved serialized data' button)
-        <textarea id="serialized-data">
-            {"data":[{"type":"Feature","properties":{"snapDistance":5,"radius":629.8473039285773,"pane":"overlayPane"},"geometry":{"type":"Point","coordinates":[173.976703,-39.191753]},"extended":{"id":"1","name":"big circle","level":"awesome"}},{"type":"Feature","properties":{"snapDistance":5,"pane":"overlayPane"},"geometry":{"type":"Polygon","coordinates":[[[173.985329,-39.192651],[173.985329,-39.189292],[173.993869,-39.189292],[173.993869,-39.192651],[173.985329,-39.192651]]]},"extended":{"id":"2","name":"mr rectangle","level":"cool"}}],"config":{"center":{"lat":-39.1934,"lng":173.98926},"zoom":15}}
-        </textarea>
+        <textarea id="serialized-data">{"data":[{"type":"Feature","properties":{"snapDistance":5,"radius":629.8473039285773,"pane":"overlayPane"},"geometry":{"type":"Point","coordinates":[173.976703,-39.191753]},"extended":{"id":"1","name":"big circle","level":"awesome"}},{"type":"Feature","properties":{"snapDistance":5,"pane":"overlayPane"},"geometry":{"type":"Polygon","coordinates":[[[173.985329,-39.192651],[173.985329,-39.189292],[173.993869,-39.189292],[173.993869,-39.192651],[173.985329,-39.192651]]]},"extended":{"id":"2","name":"mr rectangle","level":"cool"}}],"config":{"center":{"lat":-39.1934,"lng":173.98926},"zoom":15}}</textarea>
     </div>
 
     <div id="map"></div>
 
-    <script src="scripts/util.js"></script>
-    <script src="scripts/path-finder.js"></script>
     <script src="../source/map-serializer.js"></script>
     <script src="scripts/map-page.js"></script>
     <script>
