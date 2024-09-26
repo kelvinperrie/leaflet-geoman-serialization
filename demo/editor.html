@@ -31,19 +31,26 @@
         <button id="load-serialized">Load the saved serialized data</button>
     </div>
     <div id="layer-details">
-        1. Draw some layers/shapes<br/>
-        2. Click a layer and add some 'extended' details to it using this crappy form (and click the save button):
-        <div id="layer-path-details">
-            <div>id: <input id="locationId" type="text" value="" /></div>
-            <div>name: <input id="locationName" type="text" value="" /></div>
-            <div>levels: <input id="locationLevel" type="text" value="" /></div>
-        </div>
-        <input id="save-layer-details" type="submit" value="save" />
-        <br/>
-        3. Click the 'Serialize all drawing layers' button which will take the map data and serialize and put it in the below text area (you would typically put this in a database)<br/>
-        4. Click the 'Clear all drawing layers' button so that all the layers are removed<br/>
-        5. Click the 'Load the saved serialized data' button which will read the serialized data from the textarea and load it into the map<br/>
-        <br/>
+        <ol>
+            <li>Draw some layers/shapes</li>
+            <li>
+                Click a layer and add some 'extended' details to it using this crappy form (and click the save button):
+                <div id="layer-path-details">
+                    <div>id: <input id="locationId" type="text" value="" /></div>
+                    <div>name: <input id="locationName" type="text" value="" /></div>
+                    <div>levels: <input id="locationLevel" type="text" value="" /></div>
+                </div>
+                <input id="save-layer-details" type="submit" value="save" />
+            </li>
+            <li>Click the 'Serialize all drawing layers' button which will take the map data and serialize and put it in the below text area (you would typically put this in a database)</li>
+            <li>Click the 'Clear all drawing layers' button so that all the layers are removed</li>
+            <li>
+                Click the 'Load the saved serialized data' button which will read the serialized data from the textarea and load it into the map
+                <br/>
+                The geoman shapes should be reconstructed including the circles which aren't supported by geojson. Any extended data you added to a shape using the above form will be remembered and can be viewed by clicking the shape.
+            </li>
+
+        </ol>
 
         <div>Serialized data:</div>
         (there is some default layers here if you want to just click the 'Load the saved serialized data' button)
