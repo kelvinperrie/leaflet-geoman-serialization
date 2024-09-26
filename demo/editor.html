@@ -26,28 +26,37 @@
         <div class="loader-text"></div>
     </div>
     <div class="action-bar">
-        <button id="serialize-all">1. Serialize all drawing layers</button>
-        <button id="clear-all">2. Clear all drawing layers</button>
-        <button id="load-serialized">3. Load the saved serialized data</button>
+        <button id="serialize-all">Serialize all drawing layers</button>
+        <button id="clear-all">Clear all drawing layers</button>
+        <button id="load-serialized">Load the saved serialized data</button>
     </div>
     <div id="layer-details">
+        1. Draw some layers/shapes<br/>
+        2. Click a layer and add some 'extended' details to it using this crappy form (and click the save button):
         <div id="layer-path-details">
             <div>id: <input id="locationId" type="text" value="" /></div>
             <div>name: <input id="locationName" type="text" value="" /></div>
             <div>levels: <input id="locationLevel" type="text" value="" /></div>
-            <br/>
-
         </div>
         <input id="save-layer-details" type="submit" value="save" />
+        <br/>
+        3. Click the 'Serialize all drawing layers' button which will take the map data and serialize and put it in the below text area (you would typically put this in a database)<br/>
+        4. Click the 'Clear all drawing layers' button so that all the layers are removed<br/>
+        5. Click the 'Load the saved serialized data' button which will read the serialized data from the textarea and load it into the map<br/>
+        <br/>
+
         <div>Serialized data:</div>
-        <textarea id="serialized-data"></textarea>
+        (there is some default layers here if you want to just click the 'Load the saved serialized data' button)
+        <textarea id="serialized-data">
+            {"data":[{"type":"Feature","properties":{"snapDistance":5,"radius":629.8473039285773,"pane":"overlayPane"},"geometry":{"type":"Point","coordinates":[173.976703,-39.191753]},"extended":{"id":"1","name":"big circle","level":"awesome"}},{"type":"Feature","properties":{"snapDistance":5,"pane":"overlayPane"},"geometry":{"type":"Polygon","coordinates":[[[173.985329,-39.192651],[173.985329,-39.189292],[173.993869,-39.189292],[173.993869,-39.192651],[173.985329,-39.192651]]]},"extended":{"id":"2","name":"mr rectangle","level":"cool"}}],"config":{"center":{"lat":-39.1934,"lng":173.98926},"zoom":15}}
+        </textarea>
     </div>
 
     <div id="map"></div>
 
     <script src="scripts/util.js"></script>
     <script src="scripts/path-finder.js"></script>
-    <script src="scripts/map-serializer.js"></script>
+    <script src="../source/map-serializer.js"></script>
     <script src="scripts/map-page.js"></script>
     <script>
         let mappy = new MapPage();

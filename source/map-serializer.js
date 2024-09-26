@@ -1,5 +1,5 @@
 
-var SerializeMap = function(map) {
+var GeoJsonExtendedSerializeMap = function(map) {
     let geoJsonLayers = [];
         
     // turn each of our layers into geojson but also include any extra information in the 'extended' prop of the layer
@@ -30,7 +30,7 @@ var SerializeMap = function(map) {
     return serializedMapData;
 }
 
-var DeserializeMap = function(serializedMap) {
+var GeoJsonExtendedDeserializeMap = function(serializedMap) {
 
     let deserializedLayers = [];
 

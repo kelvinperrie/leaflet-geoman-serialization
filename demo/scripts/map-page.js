@@ -3,12 +3,8 @@
 class MapPage {
 
     map = L.map('map').setView([-39.19340, 173.98926], 15);
-    availableBaseLayers = [];       // a collection of all available tile/base layers; used to swap between them
-    allFeatureLayers = [];
     self = null;
-    currentLevel = "1";
-    availableLevels = ["B","1","2","3","4","5"];
-    layerWithDetailsBeingEdited = null; // what a name! brilliant!
+    layerWithDetailsBeingEdited = null; // keeps track of what layer the extended details are intended for (i.e. the last clicked layer)
 
     constructor() {
         
@@ -29,10 +25,10 @@ class MapPage {
         });
 
         // put some handlers on our buttons
-        document.getElementById("save-layer-details").onclick = function(e) { self.SaveLayerDetails_handler(e); return false; };
-        document.getElementById("serialize-all").onclick = function(e) { self.SerializeLayers_handler(e); return false; };
-        document.getElementById("clear-all").onclick = function(e) { self.ClearAllLayers_handler(e); return false; };
-        document.getElementById("load-serialized").onclick = function(e) { self.LoadSerialized_handler(e); return false; };
+        document.getElementById("save-layer-details").onclick = function(e) { self.SaveLayerDetailsButton_handler(e); return false; };
+        document.getElementById("serialize-all").onclick = function(e) { self.SerializeLayersButton_handler(e); return false; };
+        document.getElementById("clear-all").onclick = function(e) { self.ClearAllLayersButton_handler(e); return false; };
+        document.getElementById("load-serialized").onclick = function(e) { self.LoadSerializedButton_handler(e); return false; };
         
     }
     
@@ -42,22 +38,22 @@ class MapPage {
         });
     }
 
-    SerializeLayers_handler(e) {
+    SerializeLayersButton_handler(e) {
         console.log("do serialization");
 
-        let postData = SerializeMap(this.map);
+        let postData = GeoJsonExtendedSerializeMap(this.map);
 
         $("#serialized-data").val(postData);
     }
 
-    ClearAllLayers_handler(e) {
+    ClearAllLayersButton_handler(e) {
         this.ClearAllDrawingLayers()
     }
 
-    LoadSerialized_handler(e) {
+    LoadSerializedButton_handler(e) {
         var self = this;
         let serializedData = $("#serialized-data").val();
-        let deserializedData = DeserializeMap(serializedData);
+        let deserializedData = GeoJsonExtendedDeserializeMap(serializedData);
 
         // add layers to the map
         let deserializedLayers = deserializedData.data;
@@ -72,7 +68,7 @@ class MapPage {
         this.map.setView(new L.LatLng(deserializedData.config.center.lat, deserializedData.config.center.lng), deserializedData.config.zoom);
     }
 
-    SaveLayerDetails_handler(e) {
+    SaveLayerDetailsButton_handler(e) {
         console.log("saving the layer details")
         this.SaveLayerDetails();
     }

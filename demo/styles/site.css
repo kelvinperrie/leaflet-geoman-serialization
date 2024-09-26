@@ -103,6 +103,7 @@ button {
     top: 50px;
     background-color: white;
     padding: .5em;
+    width: 400px;
   }
 
   .find-button-container
